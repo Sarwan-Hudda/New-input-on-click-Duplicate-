@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="clone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+      
+            <form action="">
+                <div class="dynamic">
+                    <input type="text" name="" placeholder="Enter your Name" id=""><br>
+                    <input type="email" name="" placeholder="Enter your Email" id="">
+                    <div class="dynamicContent">
+                        <input type="text" name=""placeholder = 'Enter your Role' id="">
+                        <a href="" id="plus">+</a>
+                    </div>
+                    <div class="select">
+                        <select name="" id="">
+                            <option value="" selected disabled>Select Your Hometown</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Nagaur">Nagaur</option>
+                            <option value="Bikaner">Bikaner</option>
+                            <option value="Jodhpur">Jodhpur</option>
+                            <option value="Others">Others</option>
+                        </select>
+                </div>
+             
+                
+            </div>
+            <input type="submit" value="Register" id="lastinp">
+            <a href="" id="anchor">DUPLICATE</a>
+            <a href=""></a>
+            </form>
+    
+    </div>
+    
+    <script>
+        let anchor = document.querySelector('#plus');  
+        anchor.onclick = (e)=>{
+            e.preventDefault();
+            let inp = document.createElement('input');
+            let div = document.createElement('div');
+            document.querySelector('.dynamicContent').append(div);
+            inp.setAttribute('type','text')
+            inp.setAttribute('placeholder','Enter your nick name')
+            div.append(inp);
+        
+        }
+        let newinp;
+        let select = document.querySelector('select');
+         select.onchange = ()=>{
+            if(select.value === 'Others'){
+                
+             newinp = document.createElement('input');
+            newinp.setAttribute('type','text');
+            newinp.setAttribute('placeholder','Enter Your City');
+            document.querySelector('select').insertAdjacentElement('afterEnd',newinp)
+                
+            }
+            else{
+                newinp.remove();
+            }
+          
+         }
+            let lastanchor = document.querySelector('#anchor');
+            lastanchor.onclick = (e)=>{
+                e.preventDefault();
+              let clone =  document.querySelector('.dynamic:first-of-type').cloneNode(true);
+              document.querySelector('.dynamic:last-of-type').insertAdjacentElement('afterEnd',clone);
+               
+            }
+
+    </script>
+    
+</body>
+</html>
